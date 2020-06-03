@@ -66,4 +66,11 @@ class circleObject extends shapeObject{
         $this->radius = $radius;
     }
 
+    public function getCircleTag(){
+        $center = $this->radius + 10;
+        $circleTag = "<circle cx='$center' cy='$center' r='$this->radius'/>";
+
+        return $circleTag;
+    }
+
 }
