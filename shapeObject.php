@@ -66,44 +66,4 @@ class circleObject extends shapeObject{
         $this->radius = $radius;
     }
 
-    public function getCircleTag(){
-        $center = $this->radius + 10;
-
-        $css = "fill: " . $this->getFillColor() . ";
-                stroke: " . $this->getStrokeColor() . ";
-                stroke-width: " . $this->getStrokeWidth() . ";";
-
-        $circleTag = "<circle cx='$center' cy='$center' r='$this->radius' style='$css'/>";
-
-        return $circleTag;
-    }
-
-}
-
-class rectangleObject extends shapeObject{
-    private $width;
-    private $height;
-
-    /**
-     * rectangleObject constructor.
-     * @param $width
-     * @param $height
-     */
-    public function __construct($width, $height)
-    {
-        $this->width = $width;
-        $this->height = $height;
-    }
-
-    public function getRectangleTag()
-    {
-        $css = "fill: " . $this->getFillColor() . ";
-                stroke: " . $this->getStrokeColor() . ";
-                stroke-width: " . $this->getStrokeWidth() . ";";
-
-
-        $rectangeTag = "<rect width='$this->width' height='$this->height' style='$css'/>";
-
-        return $rectangeTag;
-    }
 }
