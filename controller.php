@@ -5,6 +5,7 @@ $circle = new circleObject(200);
 $circle->setFillColor("green");
 $circle->setStrokeColor("whitesmoke");
 $circle->setStrokeWidth(10);
+$circle->setHoverColor("forestgreen");
 
 $square = new rectangleObject(200, 200);
 $square->setFillColor("tomato");

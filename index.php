@@ -21,6 +21,8 @@ include($_SERVER['DOCUMENT_ROOT'] . "/visit.php");
     <meta name="keywords" content="svg, vector graphics for web, php drawing">
     <meta name="description" content="In this project, I experiment with drawing SVG graphics from PHP functions on the web">
 
+    <script src="behaviours.js"></script>
+
 </head>
 
 <body>

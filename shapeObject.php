@@ -3,6 +3,44 @@ abstract class shapeObject{
     private $fillColor;
     private $strokeColor;
     private $strokeWidth;
+    private $id;
+    private $hoverColor;
+
+    /**
+     * @return mixed
+     */
+    public function getHoverColor()
+    {
+        return $this->hoverColor;
+    }
+
+    /**
+     * @param mixed $hoverColor
+     */
+    public function setHoverColor($hoverColor): void
+    {
+        $this->hoverColor = $hoverColor;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setID()
+    {
+        try {
+            $this->id = chr(random_int(97, 122));
+            for($i=0; $i<10; $i++){
+                $this->id .= chr(random_int(97, 122));
+            }
+        } catch (Exception $e) {
+            $this->id = $e;
+        }
+    }
 
     /**
      * @return mixed
@@ -64,16 +102,18 @@ class circleObject extends shapeObject{
     public function __construct($radius)
     {
         $this->radius = $radius;
+        $this->setID();
     }
 
     public function getCircleTag(){
         $center = $this->radius + 10;
-
         $css = "fill: " . $this->getFillColor() . ";
                 stroke: " . $this->getStrokeColor() . ";
                 stroke-width: " . $this->getStrokeWidth() . ";";
 
-        $circleTag = "<circle cx='$center' cy='$center' r='$this->radius' style='$css'/>";
+        $circleTag = "<circle id='".$this->getID()."' cx='$center' cy='$center' r='$this->radius' style='$css'
+                        onmouseover=\"changeColor('".$this->getID(). "', '". $this->getHoverColor() . "')\"
+                         onmouseout=\"changeColor('".$this->getID(). "', '". $this->getFillColor() . "')\"/>";
 
         return $circleTag;
     }
@@ -93,6 +133,7 @@ class rectangleObject extends shapeObject{
     {
         $this->width = $width;
         $this->height = $height;
+        $this->setID();
     }
 
     public function getRectangleTag()
@@ -102,7 +143,7 @@ class rectangleObject extends shapeObject{
                 stroke-width: " . $this->getStrokeWidth() . ";";
 
 
-        $rectangeTag = "<rect width='$this->width' height='$this->height' style='$css'/>";
+        $rectangeTag = "<rect id='".$this->getID()."' width='$this->width' height='$this->height' style='$css'/>";
 
         return $rectangeTag;
     }
