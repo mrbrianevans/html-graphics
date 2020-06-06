@@ -68,7 +68,12 @@ class circleObject extends shapeObject{
 
     public function getCircleTag(){
         $center = $this->radius + 10;
-        $circleTag = "<circle cx='$center' cy='$center' r='$this->radius'/>";
+
+        $css = "fill: " . $this->getFillColor() . ";
+                stroke: " . $this->getStrokeColor() . ";
+                stroke-width: " . $this->getStrokeWidth() . ";";
+
+        $circleTag = "<circle cx='$center' cy='$center' r='$this->radius' style='$css'/>";
 
         return $circleTag;
     }
