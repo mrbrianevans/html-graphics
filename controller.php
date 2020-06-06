@@ -12,6 +12,8 @@ $square->setFillColor("tomato");
 $square->setStrokeColor("antiquewhite");
 $square->setStrokeWidth(20);
 
+echo "<button onclick='moveCircle(\"".$circle->getID()."\", 20, 20)'>Move circle down&right 2o pixels</button>";
+
 echo "<svg width='500' height='500'>";
 
 echo $circle->getCircleTag();
